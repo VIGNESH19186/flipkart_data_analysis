@@ -16,10 +16,6 @@ warnings.filterwarnings("ignore")
 sns.set_theme(style="whitegrid")
 
 
-# ==============================================================
-# 1. AUTOMATIC CSV FILE DETECTION
-# ==============================================================
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 file_name = "Flipkart_Normal_Comma_Separated.csv"
@@ -62,10 +58,6 @@ if not os.path.exists(file_path):
         )
 
 
-# ==============================================================
-# 2. LOAD DATASET
-# ==============================================================
-
 print("\n========== LOADING DATASET ==========")
 
 df = pd.read_csv(
@@ -80,9 +72,6 @@ print("Original Rows:", df.shape[0])
 print("Original Columns:", df.shape[1])
 
 
-# ==============================================================
-# 3. BASIC DATASET INFORMATION
-# ==============================================================
 
 print("\n========== FIRST 10 ROWS ==========")
 print(df.head(10))
@@ -109,9 +98,6 @@ print("\n========== STATISTICAL SUMMARY ==========")
 print(df.describe(include="all").T)
 
 
-# ==============================================================
-# 4. CLEAN COLUMN NAMES
-# ==============================================================
 
 df.columns = (
     df.columns
@@ -129,9 +115,6 @@ print("\n========== CLEANED COLUMN NAMES ==========")
 print(df.columns.tolist())
 
 
-# ==============================================================
-# 5. REMOVE DUPLICATES
-# ==============================================================
 
 print("\n========== DUPLICATE ANALYSIS ==========")
 
@@ -146,9 +129,6 @@ df.reset_index(drop=True, inplace=True)
 print("Rows After Removing Duplicates:", len(df))
 
 
-# ==============================================================
-# 6. MISSING VALUE ANALYSIS
-# ==============================================================
 
 print("\n========== MISSING VALUE ANALYSIS ==========")
 
@@ -167,9 +147,6 @@ print(
 )
 
 
-# ==============================================================
-# 7. TEXT CLEANING
-# ==============================================================
 
 print("\n========== TEXT CLEANING ==========")
 
@@ -195,9 +172,6 @@ df.replace(
 print("Text Cleaning Completed")
 
 
-# ==============================================================
-# 8. DATE CONVERSION
-# ==============================================================
 
 print("\n========== DATE CONVERSION ==========")
 
@@ -235,9 +209,6 @@ if not date_columns:
     print("No date columns detected.")
 
 
-# ==============================================================
-# 9. NUMERICAL DATA CLEANING
-# ==============================================================
 
 print("\n========== NUMERICAL DATA CLEANING ==========")
 
